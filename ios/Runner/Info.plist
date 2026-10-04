@@ -70,5 +70,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Simple Photo Editor opens your photos to edit them, and shows the ones you edited in your collection.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Simple Photo Editor saves your edited photos in the "Simple Photo Editor" album.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Simple Photo Editor uses the camera to take a photo to edit.</string>
 </dict>
 </plist>

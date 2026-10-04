@@ -6,7 +6,19 @@
 
 Quickly edit your photos and share them. Flutter rewrite of the [Simple Photo Editor](https://play.google.com/store/apps/details?id=com.neteru.simplephotoeditor) Android app (Java). Same application ID (`com.neteru.simplephotoeditor`), so the Flutter version ships as an update of the existing Play Store listing.
 
-Built from the [flutter-starter](https://github.com/edpage-hq/flutter-starter), keeping only what the app uses: routing, settings (language, theme, about, recommend), i18n, theming, splash, crash reporting and analytics.
+Built from the [flutter-starter](https://github.com/edpage-hq/flutter-starter), keeping only what the app uses: routing, settings (language, theme, about, recommend), i18n, theming, splash, crash reporting and analytics. The launcher icon and splash come from the Java app's lens logo (`assets/images/lens.svg`).
+
+## Features
+
+- **Home**: take a photo or pick one in the gallery, open the collection, share the app, rate it, see the developer's other apps (Android). The review prompt shows once, after 10 launches over at least 10 days, like the Java app.
+- **Editor** (`lib/view/screens/editor/`):
+  - *Adjust* opens [filmkit](https://pub.dev/packages/filmkit)'s editor: crop with ratios, the Java app's 16 color filters recreated as LUTs (`lib/core/editor/legacy_looks.dart`), brightness, contrast, saturation and warmth. It always works from the original photo, reopened where the user left off.
+  - *Rotate* (quarter turns and mirror), *Brush*, *Eraser* (erases strokes only), *Text*, *Emoji* and *Sticker* (the Java app's stickers, `assets/stickers/`): layers over the photo, in coordinates relative to it (`lib/core/editor/layers.dart`), drawn by the same painter on screen and at full size. Texts, emojis and stickers move, scale and turn with one or two fingers; a double tap edits a text.
+  - Undo and redo of every step, image info (file, size, dimensions, camera EXIF data) with copy and share, and the Java app's prompt to save, cancel or discard when leaving with unsaved changes.
+  - Saving renders the photo with its layers at full size (2048 px at most) and writes a JPEG to the **Simple Photo Editor** gallery album, then opens the sharing screen.
+- **Collection**: the album's photos (on Android, `Pictures/Simple Photo Editor`, where the Java app saved them too), full screen with zoom, edit again, info, share and delete.
+
+Not ported from the Java app: the fish eye, grain, sharpen and vignette filters (not color transforms, so not LUTs), and the per-app share buttons (WhatsApp, Facebook…), replaced by the system share sheet.
 
 ## Tech stack
 
@@ -16,6 +28,7 @@ Built from the [flutter-starter](https://github.com/edpage-hq/flutter-starter), 
 - Local storage: SharedPreferences
 - i18n: [Slang](https://pub.dev/packages/slang), French (base) and English
 - Crash reporting / analytics: Firebase (Crashlytics + Analytics)
+- Photo editing: filmkit (crop, filters, native export), image_picker, photo_manager (gallery album), exif
 
 ## Prerequisites
 
@@ -42,6 +55,11 @@ The `.env` file is bundled as an asset and loaded at runtime: treat every value 
 | `APP_SECONDARY_COLOR` | Secondary theme color, hex | `#009ee3` |
 | `APP_ACCENT_COLOR` | Accent theme color, hex | `#f5f5f5` |
 
+## Permissions
+
+- Android: `READ_MEDIA_IMAGES` (and `READ_MEDIA_VISUAL_USER_SELECTED` for Android 14's partial access) to list the album in the collection; `READ_EXTERNAL_STORAGE` up to Android 12 and `WRITE_EXTERNAL_STORAGE` up to Android 9. The camera goes through the system camera app, without the `CAMERA` permission. On the Play Store, `READ_MEDIA_IMAGES` must be declared in the Photo and video permissions form: a photo editor is one of the accepted uses.
+- iOS: photo library (read, add) and camera usage descriptions in `Info.plist`.
+
 ## Running tests
 
 ```bash
@@ -57,6 +75,8 @@ flutter test --coverage
 - `lib/app.dart`: root app widget, theme, and router view.
 - `lib/core/`: providers, services, routes, helpers, extensions, tools.
 - `lib/view/`: screens, components, themes.
+
+The editor's state (history of `PhotoDocument`s, brush, selection) is the `photoEditorProvider` (`lib/core/providers/editor/`); the gallery album is `GalleryService` (`lib/core/services/gallery/`).
 
 All providers use `@riverpod` code generation. `GetIt` (with `injectable`) holds the infrastructure singletons: shared preferences and navigation.
 

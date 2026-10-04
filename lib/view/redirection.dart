@@ -2,10 +2,9 @@ import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lottie/lottie.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../core/providers/navigation/redirection_provider.dart';
-import 'themes/app_colors.dart';
 import 'themes/app_theme.dart';
 
 /// Redirection screen
@@ -24,33 +23,20 @@ class RedirectionState extends ConsumerState<Redirection> {
     FlutterNativeSplash.remove();
   }
 
-  /// Builds a FlutterSplashScreen widget with a centered Lottie animation.
-  ///
-  /// The splash screen has a blue background color and a duration of 2000 milliseconds.
-  /// When the splash screen ends, it calls the [redirect] method of the [redirectionProvider]
-  /// with the current [BuildContext].
-  ///
-  /// Returns a [Widget] representing the splash screen.
-  /// But if you don't use animation, just return a [Container] widget like this:
-  /// Container(color: isLightTheme() ? Colors.white : AppColors.raisinBlack);
+  /// The lens over the native splash's background, then [redirectionProvider] goes on.
   @override
   Widget build(BuildContext context) {
     ref.watch(redirectionProvider);
 
     return FlutterSplashScreen(
       useImmersiveMode: true,
-      duration: const Duration(milliseconds: 2000),
+      duration: const Duration(milliseconds: 1000),
       backgroundColor: AppTheme.pickColor(
-        light: AppTheme.primaryColor,
-        dark: AppColors.raisinBlack,
+        light: Colors.white,
+        dark: const Color(0xFF262626),
       ),
       splashScreenBody: Center(
-        child: Lottie.asset(
-          'assets/animations/logo.json',
-          repeat: false,
-          height: 200,
-          width: 200,
-        ),
+        child: SvgPicture.asset('assets/images/lens.svg', width: 168),
       ),
       onInit: () {},
       onEnd: () {

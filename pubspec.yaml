@@ -21,7 +21,6 @@ dependencies:
   path: ^1.9.1
   intl: ^0.20.2
   get_it: ^9.2.1
-  lottie: ^3.4.0
   logger: ^2.7.0
   share_plus: ^13.2.0
   collection: ^1.19.1
@@ -48,6 +47,13 @@ dependencies:
   firebase_analytics: ^12.4.5
 
   json_annotation: any
+  filmkit: ^0.7.1
+  image_picker: ^1.2.3
+  photo_manager: ^3.12.0
+  exif: ^3.3.0
+  in_app_review: ^2.0.12
+  path_provider: ^2.1.6
+  flutter_colorpicker: ^1.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -79,24 +85,11 @@ icons_launcher:
     ios:
       enable: true
       image_path: assets/images/launcher/icon.png
-    web:
-      enable: true
-      image_path: assets/images/launcher/icon.png
-      favicon_path: assets/images/launcher/foreground.png
-    macos:
-      enable: true
-      image_path: assets/images/launcher/icon.png
-    windows:
-      enable: false
-      image_path: assets/images/launcher/icon.png
-    linux:
-      enable: false
-      image_path: assets/images/launcher/icon.png
 
 # Splash logo have size 1440x1440
 flutter_native_splash:
   image: assets/images/launcher/splash_logo.png
-  color: '#0000CD'
+  color: '#FFFFFF'
   #background_image: assets/background.png
   #branding: assets/dart.png
   image_dark: assets/images/launcher/splash_logo.png
@@ -107,8 +100,8 @@ flutter_native_splash:
   fullscreen: true
   android_12:
     image: assets/images/launcher/splash_logo.png
-    icon_background_color: '#0000CD'
-    color: '#0000CD'
+    icon_background_color: '#FFFFFF'
+    color: '#FFFFFF'
     image_dark: assets/images/launcher/splash_logo.png
     icon_background_color_dark: '#262626'
     color_dark: '#262626'
@@ -120,17 +113,9 @@ flutter:
     - .env
     #LAUNCHER
     - assets/images/launcher/splash_logo.png
-    - assets/images/launcher/logo.png
-    - assets/images/launcher/logo.svg
-    - assets/images/launcher/logo_reverse.svg
-    - assets/images/launcher/icon.png
-    - assets/images/launcher/icon.jpg
-    - assets/images/launcher/icon.svg
-    - assets/images/launcher/icon_reverse.svg
     # IMAGES
     - assets/images/
-    # ANIMATIONS
-    - assets/animations/
+    - assets/stickers/
     # I18N
     - assets/i18n/
 

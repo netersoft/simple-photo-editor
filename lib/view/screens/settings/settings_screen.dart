@@ -167,13 +167,7 @@ class SettingsListWrapper extends ConsumerWidget {
                   content: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SvgPicture.asset(
-                        AppTheme.pickByTheme(
-                          light: 'assets/images/launcher/logo.svg',
-                          dark: 'assets/images/launcher/logo_reverse.svg',
-                        ),
-                        width: 160.0,
-                      ),
+                      SvgPicture.asset('assets/images/lens.svg', width: 96.0),
                       Text(
                         context.t.appNameAlt,
                         style: const TextStyle(fontSize: 16.0),
