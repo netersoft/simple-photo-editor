@@ -6,11 +6,12 @@
 
 Quickly edit your photos and share them. Flutter rewrite of the [Simple Photo Editor](https://play.google.com/store/apps/details?id=com.neteru.simplephotoeditor) Android app (Java). Same application ID (`com.neteru.simplephotoeditor`), so the Flutter version ships as an update of the existing Play Store listing.
 
-Built from the [flutter-starter](https://github.com/edpage-hq/flutter-starter), keeping only what the app uses: routing, settings (language, theme, about, recommend), i18n, theming, splash, crash reporting and analytics. The launcher icon and splash come from the Java app's lens logo (`assets/images/lens.svg`).
+Built from the [flutter-starter](https://github.com/edpage-hq/flutter-starter), keeping only what the app uses: routing, settings, i18n, theming, splash, crash reporting and analytics. The launcher icon and splash come from the Java app's lens logo (`assets/images/lens.svg`).
 
 ## Features
 
-- **Home**: take a photo or pick one in the gallery, open the collection, share the app, rate it, see the developer's other apps (Android). The review prompt shows once, after 10 launches over at least 10 days, like the Java app.
+- **Home**: the Java app's layout, six round buttons on a hexagon around the lens: camera, gallery, collection, settings, rate the app, the developer's other apps (Android). The review prompt shows once, after 10 launches over at least 10 days, like the Java app.
+- **Settings**: language and theme; rate, share the app (system share sheet), other apps, about.
 - **Editor** (`lib/view/screens/editor/`):
   - *Adjust* opens [filmkit](https://pub.dev/packages/filmkit)'s editor: crop with ratios, the Java app's 16 color filters recreated as LUTs (`lib/core/editor/legacy_looks.dart`), brightness, contrast, saturation and warmth. It always works from the original photo, reopened where the user left off.
   - *Rotate* (quarter turns and mirror), *Brush*, *Eraser* (erases strokes only), *Text*, *Emoji* and *Sticker* (the Java app's stickers, `assets/stickers/`): layers over the photo, in coordinates relative to it (`lib/core/editor/layers.dart`), drawn by the same painter on screen and at full size. Texts, emojis and stickers move, scale and turn with one or two fingers; a double tap edits a text.

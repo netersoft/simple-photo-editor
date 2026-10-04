@@ -1,10 +1,6 @@
 {
   "about": "About",
-  "byEmail": "By email",
-  "bySms": "By SMS",
-  "byWhatsapp": "By Whatsapp",
   "language": "Language",
-  "recommandApp": "Recommend the application",
   "settings": "Settings",
   "share": "Share",
   "anErrorOccurred": "An error has occurred",
@@ -29,7 +25,6 @@
   "gallery": "Gallery",
   "collection": "Collection",
   "rateUs": "Rate us",
-  "shareApp": "Share",
   "moreApps": "More apps",
   "permissionDenied": "Permission denied",
   "no": "No",
@@ -109,5 +104,11 @@
     "backHome": "Home",
     "newPhoto": "New photo",
     "savedTo": "Saved in the \"Simple Photo Editor\" album"
+  },
+  "settingsScreen": {
+    "preferences": "Preferences",
+    "application": "Application",
+    "shareApp": "Share the app",
+    "savedIn": "Your edited photos are saved in the \"$album\" album."
   }
 }

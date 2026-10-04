@@ -137,8 +137,9 @@ abstract class AppTheme {
   }
 
   static ThemeData _buildDarkTheme(BuildContext context) {
+    // The primary blue is too dark on a dark background: buttons and radios use the lighter one.
     final ColorScheme colorScheme = const ColorScheme.dark().copyWith(
-      primary: primaryColor,
+      primary: secondaryColor,
       secondary: secondaryColor,
     );
     final ThemeData base = ThemeData(
