@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flutter_project_template",
+            "name": "simple_photo_editor",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "flutter_project_template (profile mode)",
+            "name": "simple_photo_editor (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "flutter_project_template (release mode)",
+            "name": "simple_photo_editor (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

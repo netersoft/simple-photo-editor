@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_starter/core/services/crash_reporting/service.dart';
-import 'package:flutter_starter/firebase_options.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:simple_photo_editor/core/services/crash_reporting/service.dart';
+import 'package:simple_photo_editor/firebase_options.dart';
 
 void main() {
   test('isConfigured is false with the shipped placeholder options', () {

@@ -82,14 +82,4 @@ abstract class DialogHelper {
       ),
     );
   }
-
-  static void showConnectionError(
-    BuildContext context,
-  ) {
-    showInfo(
-      context,
-      title: context.t.connectionErrorTitle,
-      content: context.t.connectionErrorContent,
-    );
-  }
 }
