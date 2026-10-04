@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_starter/core/services/analytics/service.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:simple_photo_editor/core/services/analytics/service.dart';
 
 void main() {
   test('every method is a silent no-op when Firebase is unconfigured', () async {

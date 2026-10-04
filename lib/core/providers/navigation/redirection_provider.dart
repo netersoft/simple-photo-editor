@@ -1,11 +1,8 @@
-import 'dart:async';
-
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../enums/app_brightness.dart';
-import '../../helpers/account/auth_helper.dart';
 import '../../helpers/router/navigation_helper.dart';
 import '../../routes/app_route.dart';
 import '../../services/di/locator.dart';
@@ -15,7 +12,7 @@ import '../../services/shared_preferences/service.dart';
 
 part 'redirection_provider.g.dart';
 
-final _navigationHelper = locator<NavigationHelper>();
+NavigationHelper get _navigationHelper => locator<NavigationHelper>();
 
 @riverpod
 class Redirection extends _$Redirection {
@@ -25,24 +22,21 @@ class Redirection extends _$Redirection {
   Future redirect(WidgetRef ref) async {
     final SharedPreferencesService prefs = locator<SharedPreferencesService>();
 
-    unawaited(AuthHelper.reloadUserData());
-
     bool? firstOpening = prefs.getBool(
       PrefKeys.firstOpening,
       defaultValue: true,
     );
 
     if (firstOpening ?? false) {
-      unawaited(prefs.setString(PrefKeys.brightness, AppBrightness.system.name));
+      final ctx = _navigationHelper.navigatorKey.currentContext;
+      final langCode = ctx != null ? Localizations.localeOf(ctx).languageCode : null;
 
-      var ctx = _navigationHelper.navigatorKey.currentContext;
-      if (ctx != null) {
-        final langCode = Localizations.localeOf(ctx).languageCode;
-        await LocaleSettings.setLocaleRaw(langCode);
-      }
-      _navigationHelper.pushReplacement(const IntroRoute().location);
-    } else {
-      _navigationHelper.pushReplacement(const MainRoute().location);
+      await prefs.setBool(PrefKeys.firstOpening, false);
+      await prefs.setString(PrefKeys.brightness, AppBrightness.system.name);
+
+      if (langCode != null) await LocaleSettings.setLocaleRaw(langCode);
     }
+
+    _navigationHelper.pushReplacement(const MainRoute().location);
   }
 }

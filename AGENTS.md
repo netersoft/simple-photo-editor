@@ -1,4 +1,4 @@
-# Flutter Starter - Agent Guide
+# Simple Photo Editor - Agent Guide
 
 ## Project Setup
 
@@ -9,22 +9,16 @@ flutter pub get
 # Generate Slang translations
 dart run slang
 
-# Run codegen (Riverpod, JSON serializable, Hive)
+# Run codegen (Riverpod, go_router, injectable)
 dart run build_runner build
 
-# Run app
-flutter run
+# Run app (Android flavors: dev, staging, prod)
+flutter run --flavor dev
 ```
 
 ## Essential Commands
 
 ```bash
-# Rename app (all displays)
-dart run rename_app:main all="My App Name"
-
-# Change Android/iOS package name
-dart run change_app_package_name:main com.new.package.name
-
 # Generate launcher icons (from assets/images/launcher/icon.png)
 dart run icons_launcher:create
 
@@ -49,12 +43,11 @@ dart format .
 ## Architecture
 
 - **Entry point**: `lib/main.dart`
-- **Core layer** (`lib/core/`): providers, services, models, routes, helpers, data
-- **View layer** (`lib/view/`): screens, components, layouts, themes
+- **Core layer** (`lib/core/`): providers, services, routes, helpers
+- **View layer** (`lib/view/`): screens, components, themes
 - **State management**: Riverpod with code generation (`riverpod_generator`)
 - **Routing**: go_router
-- **Local storage**: Hive CE + SharedPreferences
-- **API**: REST with json_serializable
+- **Local storage**: SharedPreferences
 
 ## Environment
 
@@ -63,7 +56,7 @@ dart format .
 
 ## Testing
 
-Unit tests live under `test/` (`api/`, `helpers/`, `providers/`), using `mocktail` with a
+Unit tests live under `test/` (`helpers/`, `providers/`, `services/`), using `mocktail` with a
 GetIt test-locator override (`test/helpers/test_utils.dart`) to mock infrastructure
 singletons. There are no widget, golden, or integration tests yet.
 

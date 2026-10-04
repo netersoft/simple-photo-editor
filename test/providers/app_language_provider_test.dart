@@ -1,5 +1,5 @@
-import 'package:flutter_starter/core/services/i18n/translations.g.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:simple_photo_editor/core/services/i18n/translations.g.dart';
 
 void main() {
   group('LocaleSettings', () {
