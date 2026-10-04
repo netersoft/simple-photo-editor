@@ -12,7 +12,7 @@ import '../../services/shared_preferences/service.dart';
 
 part 'redirection_provider.g.dart';
 
-final _navigationHelper = locator<NavigationHelper>();
+NavigationHelper get _navigationHelper => locator<NavigationHelper>();
 
 @riverpod
 class Redirection extends _$Redirection {
