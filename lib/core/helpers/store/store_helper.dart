@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/services.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -9,7 +10,8 @@ import '../../services/shared_preferences/service.dart';
 
 /// Play Store links: rating the app and the developer's other apps.
 abstract class StoreHelper {
-  static const developerName = 'Neteru+Studio';
+  /// Netersoft's developer page on the Play Store.
+  static const _developerId = '6685918894519555539';
 
   /// Like the Java app: the review prompt shows once the app has been opened 10 times,
   /// at least 10 days after its first launch.
@@ -19,9 +21,11 @@ abstract class StoreHelper {
   static Future<void> rate() => InAppReview.instance.openStoreListing();
 
   static Future<void> moreApps() async {
-    if (!await launchUrl(Uri.parse('market://search?q=pub:$developerName'))) {
-      await launchUrl(Uri.parse('https://play.google.com/store/apps/developer?id=$developerName'), mode: LaunchMode.externalApplication);
-    }
+    // The Play Store app if installed (launchUrl throws when nothing handles market://), the web page otherwise.
+    try {
+      if (await launchUrl(Uri.parse('market://dev?id=$_developerId'))) return;
+    } on PlatformException catch (_) {}
+    await launchUrl(Uri.parse('https://play.google.com/store/apps/dev?id=$_developerId'), mode: LaunchMode.externalApplication);
   }
 
   /// Whether the store has a developer page for this platform.

@@ -10,7 +10,7 @@ Built from the [flutter-starter](https://github.com/edpage-hq/flutter-starter), 
 
 ## Features
 
-- **Home**: the Java app's layout, six round buttons on a hexagon around the lens: camera, gallery, collection, settings, rate the app, the developer's other apps (Android). The review prompt shows once, after 10 launches over at least 10 days, like the Java app.
+- **Home**: the Java app's layout, six round buttons on a hexagon around the lens: camera, gallery, collection, settings, rate the app, Netersoft's other apps (Android, its Play Store developer page). The review prompt shows once, after 10 launches over at least 10 days, like the Java app.
 - **Settings**: language and theme; rate, share the app (system share sheet), other apps, about.
 - **Editor** (`lib/view/screens/editor/`):
   - *Adjust* opens [filmkit](https://pub.dev/packages/filmkit)'s editor: crop with ratios, the Java app's 16 color filters recreated as LUTs (`lib/core/editor/legacy_looks.dart`), brightness, contrast, saturation and warmth. It always works from the original photo, reopened where the user left off.
@@ -23,7 +23,7 @@ Not ported from the Java app: the fish eye, grain, sharpen and vignette filters 
 
 ## Tech stack
 
-- Mobile: Flutter (Android and iOS), Dart SDK `>=3.8.0 <4.0.0`
+- Mobile: Flutter (Android and iOS), Dart SDK `>=3.8.0 <4.0.0`; Roboto font, bundled in `assets/fonts/roboto/` (Apache 2.0)
 - State management: Riverpod (`riverpod_generator`, code-gen)
 - Routing: go_router (`go_router_builder`)
 - Local storage: SharedPreferences

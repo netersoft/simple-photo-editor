@@ -22,10 +22,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      elevation: 0.0,
-      title: Text(context.t.settings, style: const TextStyle(color: Colors.white)),
-      backgroundColor: AppTheme.getAppbarBgColor(),
-      iconTheme: const IconThemeData(color: Colors.white),
+      title: Text(context.t.settings),
     ),
     body: const SettingsListWrapper(),
   );
@@ -82,8 +79,6 @@ class SettingsListWrapper extends ConsumerWidget {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 13, color: AppTheme.getTextColor().withValues(alpha: 0.7)),
           ),
-          const SizedBox(height: 16),
-          Text('© ${StoreHelper.developerName.replaceAll('+', ' ')}', style: const TextStyle(fontSize: 13)),
         ],
       ),
       actions: [TextButton(onPressed: () => Navigator.of(context).pop(), child: Text(context.t.close))],

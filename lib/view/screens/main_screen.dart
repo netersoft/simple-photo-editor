@@ -10,6 +10,7 @@ import '../../core/helpers/store/store_helper.dart';
 import '../../core/routes/app_route.dart';
 import '../../core/services/gallery/service.dart';
 import '../../core/services/i18n/translations.g.dart';
+import '../themes/app_colors.dart';
 import '../themes/app_theme.dart';
 
 /// Home: take or pick a photo to edit, open the collection or the settings, and the store links.
@@ -52,7 +53,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final textColor = AppTheme.pickColor(light: const Color(0xFF414A4C), dark: AppTheme.getTextColor());
+    final textColor = AppTheme.pickColor(light: AppColors.outerSpace, dark: AppTheme.getTextColor());
 
     // The Java app's home: six round buttons on a hexagon around the lens.
     final buttons = <(Offset, Widget)>[

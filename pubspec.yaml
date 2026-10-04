@@ -120,46 +120,25 @@ flutter:
     - assets/i18n/
 
   fonts:
-    - family: proxima_nova
+    - family: roboto
       fonts:
-        - asset: assets/fonts/proxima_nova.otf
-
-    - family: montserrat
-      fonts:
-        - asset: assets/fonts/montserrat/montserrat_italic.ttf
-          style: italic
-        - asset: assets/fonts/montserrat/montserrat_black.ttf
-          weight: 900
-        - asset: assets/fonts/montserrat/montserrat_extra_bold.ttf
-          weight: 800
-        - asset: assets/fonts/montserrat/montserrat_bold.ttf
-          weight: 700
-        - asset: assets/fonts/montserrat/montserrat_semi_bold.ttf
-          weight: 600
-        - asset: assets/fonts/montserrat/montserrat_medium.ttf
-          weight: 500
-        - asset: assets/fonts/montserrat/montserrat_regular.ttf
-          style: normal
-          weight: 400
-        - asset: assets/fonts/montserrat/montserrat_light.ttf
-          weight: 300
-        - asset: assets/fonts/montserrat/montserrat_extra_light.ttf
-          weight: 200
-        - asset: assets/fonts/montserrat/montserrat_thin.ttf
+        - asset: assets/fonts/roboto/Roboto-Thin.ttf
           weight: 100
-
-    - family: open_sans
-      fonts:
-        - asset: assets/fonts/open_sans/open_sans_italic.ttf
-          style: italic
-        - asset: assets/fonts/open_sans/open_sans_extra_bold.ttf
-          weight: 800
-        - asset: assets/fonts/open_sans/open_sans_bold.ttf
-          weight: 700
-        - asset: assets/fonts/open_sans/open_sans_semi_bold.ttf
-          weight: 600
-        - asset: assets/fonts/open_sans/open_sans_regular.ttf
-          style: normal
-          weight: 400
-        - asset: assets/fonts/open_sans/open_sans_light.ttf
+        - asset: assets/fonts/roboto/Roboto-Light.ttf
           weight: 300
+        - asset: assets/fonts/roboto/Roboto-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/roboto/Roboto-Italic.ttf
+          style: italic
+        - asset: assets/fonts/roboto/Roboto-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/roboto/Roboto-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/roboto/Roboto-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/roboto/Roboto-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/roboto/Roboto-Black.ttf
+          weight: 900

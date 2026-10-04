@@ -26,6 +26,8 @@ class ItemMetrics {
         style: TextStyle(
           fontSize: (emoji ? 0.16 : 0.1) * _unit * item.scale,
           color: emoji ? null : item.color,
+          // The app's font, bundled: the same on screen and in the saved photo, on every platform.
+          fontFamily: emoji ? null : 'roboto',
           fontWeight: FontWeight.w600,
           height: 1.15,
           shadows: emoji ? null : [Shadow(color: Colors.black54, blurRadius: 0.01 * _unit * item.scale)],

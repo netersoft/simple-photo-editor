@@ -7,7 +7,6 @@ import 'package:photo_manager/photo_manager.dart';
 import '../../../core/providers/collection/collection_provider.dart';
 import '../../../core/routes/app_route.dart';
 import '../../../core/services/i18n/translations.g.dart';
-import '../../themes/app_theme.dart';
 
 /// The photos saved by the app, in a grid.
 class CollectionScreen extends ConsumerWidget {
@@ -19,9 +18,7 @@ class CollectionScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.t.collectionScreen.title, style: const TextStyle(color: Colors.white)),
-        backgroundColor: AppTheme.getAppbarBgColor(),
-        iconTheme: const IconThemeData(color: Colors.white),
+        title: Text(context.t.collectionScreen.title),
         actions: [
           IconButton(
             tooltip: context.t.collectionScreen.refresh,

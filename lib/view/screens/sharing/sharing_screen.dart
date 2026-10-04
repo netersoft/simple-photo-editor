@@ -27,9 +27,7 @@ class SharingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      title: Text(context.t.sharing.title, style: const TextStyle(color: Colors.white)),
-      backgroundColor: AppTheme.getAppbarBgColor(),
-      iconTheme: const IconThemeData(color: Colors.white),
+      title: Text(context.t.sharing.title),
       actions: [
         IconButton(
           tooltip: context.t.sharing.backHome,
