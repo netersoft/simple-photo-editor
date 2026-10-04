@@ -21,7 +21,6 @@ dependencies:
   path: ^1.9.1
   intl: ^0.20.2
   get_it: ^9.2.1
-  lottie: ^3.4.0
   logger: ^2.7.0
   share_plus: ^13.2.0
   collection: ^1.19.1
@@ -48,6 +47,13 @@ dependencies:
   firebase_analytics: ^12.4.5
 
   json_annotation: any
+  filmkit: ^0.7.1
+  image_picker: ^1.2.3
+  photo_manager: ^3.12.0
+  exif: ^3.3.0
+  in_app_review: ^2.0.12
+  path_provider: ^2.1.6
+  flutter_colorpicker: ^1.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -79,24 +85,11 @@ icons_launcher:
     ios:
       enable: true
       image_path: assets/images/launcher/icon.png
-    web:
-      enable: true
-      image_path: assets/images/launcher/icon.png
-      favicon_path: assets/images/launcher/foreground.png
-    macos:
-      enable: true
-      image_path: assets/images/launcher/icon.png
-    windows:
-      enable: false
-      image_path: assets/images/launcher/icon.png
-    linux:
-      enable: false
-      image_path: assets/images/launcher/icon.png
 
 # Splash logo have size 1440x1440
 flutter_native_splash:
   image: assets/images/launcher/splash_logo.png
-  color: '#0000CD'
+  color: '#FFFFFF'
   #background_image: assets/background.png
   #branding: assets/dart.png
   image_dark: assets/images/launcher/splash_logo.png
@@ -107,8 +100,8 @@ flutter_native_splash:
   fullscreen: true
   android_12:
     image: assets/images/launcher/splash_logo.png
-    icon_background_color: '#0000CD'
-    color: '#0000CD'
+    icon_background_color: '#FFFFFF'
+    color: '#FFFFFF'
     image_dark: assets/images/launcher/splash_logo.png
     icon_background_color_dark: '#262626'
     color_dark: '#262626'
@@ -120,61 +113,32 @@ flutter:
     - .env
     #LAUNCHER
     - assets/images/launcher/splash_logo.png
-    - assets/images/launcher/logo.png
-    - assets/images/launcher/logo.svg
-    - assets/images/launcher/logo_reverse.svg
-    - assets/images/launcher/icon.png
-    - assets/images/launcher/icon.jpg
-    - assets/images/launcher/icon.svg
-    - assets/images/launcher/icon_reverse.svg
     # IMAGES
     - assets/images/
-    # ANIMATIONS
-    - assets/animations/
+    - assets/stickers/
     # I18N
     - assets/i18n/
 
   fonts:
-    - family: proxima_nova
+    - family: roboto
       fonts:
-        - asset: assets/fonts/proxima_nova.otf
-
-    - family: montserrat
-      fonts:
-        - asset: assets/fonts/montserrat/montserrat_italic.ttf
-          style: italic
-        - asset: assets/fonts/montserrat/montserrat_black.ttf
-          weight: 900
-        - asset: assets/fonts/montserrat/montserrat_extra_bold.ttf
-          weight: 800
-        - asset: assets/fonts/montserrat/montserrat_bold.ttf
-          weight: 700
-        - asset: assets/fonts/montserrat/montserrat_semi_bold.ttf
-          weight: 600
-        - asset: assets/fonts/montserrat/montserrat_medium.ttf
-          weight: 500
-        - asset: assets/fonts/montserrat/montserrat_regular.ttf
-          style: normal
-          weight: 400
-        - asset: assets/fonts/montserrat/montserrat_light.ttf
-          weight: 300
-        - asset: assets/fonts/montserrat/montserrat_extra_light.ttf
-          weight: 200
-        - asset: assets/fonts/montserrat/montserrat_thin.ttf
+        - asset: assets/fonts/roboto/Roboto-Thin.ttf
           weight: 100
-
-    - family: open_sans
-      fonts:
-        - asset: assets/fonts/open_sans/open_sans_italic.ttf
-          style: italic
-        - asset: assets/fonts/open_sans/open_sans_extra_bold.ttf
-          weight: 800
-        - asset: assets/fonts/open_sans/open_sans_bold.ttf
-          weight: 700
-        - asset: assets/fonts/open_sans/open_sans_semi_bold.ttf
-          weight: 600
-        - asset: assets/fonts/open_sans/open_sans_regular.ttf
-          style: normal
-          weight: 400
-        - asset: assets/fonts/open_sans/open_sans_light.ttf
+        - asset: assets/fonts/roboto/Roboto-Light.ttf
           weight: 300
+        - asset: assets/fonts/roboto/Roboto-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/roboto/Roboto-Italic.ttf
+          style: italic
+        - asset: assets/fonts/roboto/Roboto-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/roboto/Roboto-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/roboto/Roboto-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/roboto/Roboto-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/roboto/Roboto-Black.ttf
+          weight: 900

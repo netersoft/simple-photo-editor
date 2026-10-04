@@ -39,6 +39,7 @@ abstract class AppColors {
   static const snow = Color(0xfffafafa);
   static const pinkSwain = Color(0xffb5b5b5);
   static const raisinBlack = Color(0xff262626);
+  static const outerSpace = Color(0xff414A4C);
   static const supernova = Color(0xffffac35);
   static const kournikova = Color(0xffffcc55);
   static const honeydew = Color(0xfff8faf8);

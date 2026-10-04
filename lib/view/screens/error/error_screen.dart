@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/routes/app_route.dart';
 import '../../../core/services/i18n/translations.g.dart';
-import '../../themes/app_theme.dart';
 
 class ErrorScreen extends StatelessWidget {
   final GoException? error;
@@ -14,14 +13,9 @@ class ErrorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      elevation: 0.0,
-      title: Text(
-        context.t.pageNotFound,
-        style: const TextStyle(color: Colors.white),
-      ),
-      backgroundColor: AppTheme.getAppbarBgColor(),
+      title: Text(context.t.pageNotFound),
       leading: IconButton(
-        icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+        icon: const Icon(Icons.arrow_back_ios),
         onPressed: () {
           context.pop();
         },

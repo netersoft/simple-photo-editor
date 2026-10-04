@@ -56,7 +56,7 @@ dart format .
 
 ## Testing
 
-Unit tests live under `test/` (`helpers/`, `providers/`, `services/`), using `mocktail` with a
+Unit tests live under `test/` (`editor/`, `helpers/`, `providers/`, `services/`), using `mocktail` with a
 GetIt test-locator override (`test/helpers/test_utils.dart`) to mock infrastructure
 singletons. There are no widget, golden, or integration tests yet.
 

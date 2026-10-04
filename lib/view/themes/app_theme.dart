@@ -23,7 +23,7 @@ abstract class AppTheme {
     dotenv.get('APP_ACCENT_COLOR'),
   );
 
-  static const String _fontFamily = 'montserrat';
+  static const String _fontFamily = 'roboto';
 
   static final SharedPreferencesService prefs = locator<SharedPreferencesService>();
 
@@ -52,7 +52,10 @@ abstract class AppTheme {
 
   static Color getBgDefaultColor() => isLight() ? Colors.white : AppColors.blackRussian;
 
-  static Color getAppbarBgColor() => isLight() ? primaryColor : AppColors.raisinBlack;
+  static Color getAppbarBgColor() => isLight() ? Colors.white : AppColors.raisinBlack;
+
+  /// Title and icons of the app bars: the dark gray of the home title in light mode.
+  static Color getAppbarFgColor() => isLight() ? AppColors.outerSpace : Colors.white;
 
   static Color getIconColor() => isLight() ? primaryColor : accentColor;
 
@@ -62,11 +65,23 @@ abstract class AppTheme {
     Future.delayed(const Duration(milliseconds: Delays.veryShort), () {
       SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(
-          statusBarColor: isLight() ? primaryColor : AppColors.blackRussian,
+          statusBarColor: isLight() ? Colors.white : AppColors.blackRussian,
+          statusBarIconBrightness: isLight() ? Brightness.dark : Brightness.light,
+          statusBarBrightness: isLight() ? Brightness.light : Brightness.dark,
         ),
       );
     });
   }
+
+  static AppBarTheme _appBarTheme() => AppBarTheme(
+    backgroundColor: getAppbarBgColor(),
+    foregroundColor: getAppbarFgColor(),
+    elevation: 0,
+    scrolledUnderElevation: 1,
+    surfaceTintColor: Colors.transparent,
+    shadowColor: Colors.black26,
+    systemOverlayStyle: isLight() ? SystemUiOverlayStyle.dark : SystemUiOverlayStyle.light,
+  );
 
   static ThemeData setup(BuildContext context, {bool lightTheme = true}) => isLight() ? _buildLightTheme(context) : _buildDarkTheme(context);
 
@@ -94,6 +109,7 @@ abstract class AppTheme {
         surface: Colors.white,
       ),
       tabBarTheme: const TabBarThemeData(indicatorColor: Colors.white),
+      appBarTheme: _appBarTheme(),
     );
     return base.copyWith(
       textTheme: base.textTheme,
@@ -137,8 +153,9 @@ abstract class AppTheme {
   }
 
   static ThemeData _buildDarkTheme(BuildContext context) {
+    // The primary blue is too dark on a dark background: buttons and radios use the lighter one.
     final ColorScheme colorScheme = const ColorScheme.dark().copyWith(
-      primary: primaryColor,
+      primary: secondaryColor,
       secondary: secondaryColor,
     );
     final ThemeData base = ThemeData(
@@ -159,6 +176,7 @@ abstract class AppTheme {
         surface: AppColors.blackRussian,
       ),
       tabBarTheme: const TabBarThemeData(indicatorColor: Colors.white),
+      appBarTheme: _appBarTheme(),
     );
     return base.copyWith(
       textTheme: base.textTheme,
