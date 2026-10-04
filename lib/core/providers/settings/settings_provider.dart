@@ -8,6 +8,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../enums/app_brightness.dart';
 import '../../helpers/router/navigation_helper.dart';
+import '../../helpers/store/store_helper.dart';
 import '../../routes/app_route.dart';
 import '../../services/di/locator.dart';
 import '../../services/i18n/translations.g.dart';
@@ -25,13 +26,11 @@ class Settings extends _$Settings {
 
   final SharedPreferencesService prefs = locator<SharedPreferencesService>();
 
-  static const _playStoreUrl = 'https://play.google.com/store/apps/details?id=com.neteru.simplephotoeditor';
-
   /// Shares the app's Play Store link through the system share sheet, from [origin]
   /// (the tapped tile, for the iPad popover).
   Future<void> shareApp({Rect? origin}) async {
     try {
-      await SharePlus.instance.share(ShareParams(text: '${t.installApp}\n$_playStoreUrl', subject: t.appNameAlt, sharePositionOrigin: origin));
+      await SharePlus.instance.share(ShareParams(text: '${t.installApp}\n${StoreHelper.playStoreUrl}', subject: t.appNameAlt, sharePositionOrigin: origin));
     } catch (_) {
       unawaited(EasyLoading.showError(t.anErrorOccurred));
     }
