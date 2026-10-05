@@ -38,6 +38,7 @@ class Settings extends _$Settings {
 
   Future<void> changeLanguage(String newValue) async {
     final navigator = _navigationHelper.navigatorKey.currentState;
+    await prefs.setString(PrefKeys.language, newValue);
     await LocaleSettings.setLocaleRaw(newValue);
 
     try {
