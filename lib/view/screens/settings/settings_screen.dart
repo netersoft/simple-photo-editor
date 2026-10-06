@@ -16,7 +16,7 @@ import '../../../core/services/i18n/translations.g.dart';
 import '../../components/misc/floating_modal.dart';
 import '../../themes/app_theme.dart';
 
-/// Preferences (language, theme) and the app's links: rate, share, other apps, privacy policy, about.
+/// Preferences (language, theme) and the app's links: rate, share, other apps, privacy policy, credits, about.
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
@@ -159,6 +159,11 @@ class SettingsListWrapper extends ConsumerWidget {
               leading: const Icon(Icons.privacy_tip_outlined),
               title: Text(context.t.privacyPolicy),
               onPressed: (context) => const PrivacyPolicyRoute().push<void>(context),
+            ),
+            SettingsTile.navigation(
+              leading: const Icon(Icons.attribution_outlined),
+              title: Text(context.t.sourcesAndCredits),
+              onPressed: (context) => const CreditsRoute().push<void>(context),
             ),
             SettingsTile.navigation(
               leading: const Icon(Icons.info_outline),
