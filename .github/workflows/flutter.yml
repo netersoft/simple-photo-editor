@@ -46,7 +46,7 @@ jobs:
           echo "${{ secrets.ENV_FILE }}" > .env
           flutter test --coverage
 
-      # Generated files (*.g.dart, *.config.dart, firebase_options.dart) are
+      # Generated files (*.g.dart, *.config.dart) are
       # excluded from the count -- they're regenerated glue, not code this
       # repo's tests are meant to exercise. 10% is a floor below current
       # hand-written coverage (~14%), meant to catch regressions; raise it
@@ -54,7 +54,7 @@ jobs:
       - name: Enforce coverage floor
         run: |
           awk -v thresh=10 '
-            /^SF:/ { file=$0; sub("^SF:", "", file); skip = (file ~ /\.g\.dart$/ || file ~ /\.config\.dart$/ || file ~ /firebase_options\.dart$/) }
+            /^SF:/ { file=$0; sub("^SF:", "", file); skip = (file ~ /\.g\.dart$/ || file ~ /\.config\.dart$/) }
             /^LF:/ { n=$0; sub("^LF:", "", n); if (!skip) lf += n }
             /^LH:/ { n=$0; sub("^LH:", "", n); if (!skip) lh += n }
             END {

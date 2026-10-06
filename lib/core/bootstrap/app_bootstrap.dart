@@ -3,9 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:go_router/go_router.dart';
 
-import '../services/crash_reporting/service.dart';
 import '../services/di/locator.dart';
-import '../services/firebase/service.dart';
 import '../services/i18n/translations.g.dart';
 import '../services/shared_preferences/keys.dart';
 import '../services/shared_preferences/service.dart';
@@ -34,9 +32,6 @@ Future<void> bootstrapApp({
   GoRouter.optionURLReflectsImperativeAPIs = true;
 
   await dotenv.load(fileName: config.envFileName);
-
-  await FirebaseSetup.ensureInitialized();
-  await CrashReportingService.init();
 
   await setupLocator();
 
