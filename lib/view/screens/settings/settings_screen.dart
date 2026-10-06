@@ -80,6 +80,12 @@ class SettingsListWrapper extends ConsumerWidget {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 13, color: AppTheme.getTextColor().withValues(alpha: 0.7)),
           ),
+          const SizedBox(height: 12),
+          Text(
+            context.t.licenseNotice,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 12, color: AppTheme.getTextColor().withValues(alpha: 0.7)),
+          ),
         ],
       ),
       actions: [TextButton(onPressed: () => Navigator.of(context).pop(), child: Text(context.t.close))],

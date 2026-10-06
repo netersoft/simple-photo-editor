@@ -118,3 +118,14 @@ Flavors only separate the app identity, so the three builds can be installed sid
 ## Release Builds
 
 Pushing a `v*` tag (or running the workflow manually) builds a `prod` release APK (uploaded as a workflow artifact) and checks that iOS compiles (`flutter build ios --release --no-codesign`). The APK is signed with the debug key until `android/key.properties` and the app's keystore are set up: the Play Store update needs the keystore of the original app.
+
+## License
+
+Simple Photo Editor is free software by Netersoft.
+
+- **Code**: the source code (`lib/`, `test/`, `tool/` and the platform folders) is licensed under the [GNU General Public License v3.0](LICENSE).
+- **Content**: the texts, translations and pictures made by Netersoft for the app are licensed under [Creative Commons Attribution-ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+- **Third-party files** keep their own licenses: the OpenMoji emoji stickers (CC BY-SA 4.0), the error screen icon from game-icons.net (CC BY 3.0) and the Roboto font (Apache 2.0), listed in the in-app Sources and credits page (`assets/docs/<locale>/credits.html`).
+- **Names and icons**: the Netersoft name, the Simple Photo Editor name, and the app icons and logos (`assets/images/launcher/` and `assets/images/lens.svg`) are not covered by these licenses. A modified version must use another name and icon.
+
+Copyright © 2018-2026 Netersoft.

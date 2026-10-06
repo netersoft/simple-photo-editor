@@ -112,5 +112,6 @@
     "application": "Application",
     "shareApp": "Share the app",
     "savedIn": "Your edited photos are saved in the \"$album\" album."
-  }
+  },
+  "licenseNotice": "Free software under the GNU GPL v3 (code) and CC BY-SA 4.0 (content). © 2018-2026 Netersoft"
 }
