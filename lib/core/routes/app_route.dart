@@ -7,6 +7,7 @@ import '../../view/screens/collection/collection_screen.dart';
 import '../../view/screens/collection/viewer_screen.dart';
 import '../../view/screens/editor/photo_editor_screen.dart';
 import '../../view/screens/main_screen.dart';
+import '../../view/screens/settings/credits_screen.dart';
 import '../../view/screens/settings/privacy_policy_screen.dart';
 import '../../view/screens/settings/settings_screen.dart';
 import '../../view/screens/sharing/sharing_screen.dart';
@@ -41,6 +42,7 @@ class RedirectionRoute extends GoRouteData with $RedirectionRoute {
   routes: [
     TypedGoRoute<SettingsRoute>(path: 'settings'),
     TypedGoRoute<PrivacyPolicyRoute>(path: 'privacy'),
+    TypedGoRoute<CreditsRoute>(path: 'credits'),
     TypedGoRoute<EditorRoute>(path: 'editor'),
     TypedGoRoute<SharingRoute>(path: 'sharing'),
     TypedGoRoute<CollectionRoute>(
@@ -69,6 +71,13 @@ class PrivacyPolicyRoute extends GoRouteData with $PrivacyPolicyRoute {
 
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) => SwipeablePage<void>(builder: (context) => const PrivacyPolicyScreen());
+}
+
+class CreditsRoute extends GoRouteData with $CreditsRoute {
+  const CreditsRoute();
+
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) => SwipeablePage<void>(builder: (context) => const CreditsScreen());
 }
 
 class EditorRoute extends GoRouteData with $EditorRoute {
