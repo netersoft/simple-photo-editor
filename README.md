@@ -11,7 +11,7 @@ Built from the [flutter-starter](https://github.com/edpage-hq/flutter-starter), 
 ## Features
 
 - **Home**: the Java app's layout, six round buttons on a hexagon around the lens: camera, gallery, collection, settings, rate the app, Netersoft's other apps (Android, its Play Store developer page). The review prompt shows once, after 10 launches over at least 10 days, like the Java app.
-- **Settings**: language and theme; rate, share the app (system share sheet), other apps, about.
+- **Settings**: language and theme; rate, share the app (system share sheet), other apps, privacy policy, about.
 - **Editor** (`lib/view/screens/editor/`):
   - *Adjust* opens [filmkit](https://pub.dev/packages/filmkit)'s editor: crop with ratios, the Java app's 16 color filters recreated as LUTs (`lib/core/editor/legacy_looks.dart`), brightness, contrast, saturation and warmth. It always works from the original photo, reopened where the user left off.
   - *Rotate* (quarter turns and mirror), *Brush*, *Eraser* (erases strokes only), *Text*, *Emoji* and *Sticker* (the Java app's stickers, `assets/stickers/`): layers over the photo, in coordinates relative to it (`lib/core/editor/layers.dart`), drawn by the same painter on screen and at full size. Texts, emojis and stickers move, scale and turn with one or two fingers; a double tap edits a text.
@@ -92,6 +92,15 @@ Generated files (`*.g.dart`, `*.config.dart`) are not committed: rebuild them wi
 - `FirebaseSetup` (`lib/core/services/firebase/service.dart`) initializes Firebase once at bootstrap. `FirebaseSetup.isConfigured` detects the placeholder `lib/firebase_options.dart`, and every Firebase-backed service is a no-op until `flutterfire configure` replaces it.
 - `CrashReportingService` sends uncaught errors to Crashlytics; `LogHelper.e` / `LogHelper.f` also report caught errors as non-fatal.
 - `AnalyticsService` wraps `FirebaseAnalytics`; screen views are tracked through the router's `FirebaseAnalyticsObserver`.
+- The [privacy policy](#privacy-policy) states that the app sends no analytics or crash reports: update it before shipping a build with Firebase configured.
+
+## Privacy policy
+
+The privacy policy ships in the app (`assets/docs/<locale>/privacy_policy.html`, one per app language, opened from Settings). The store listings link to the public copy at https://netersoft.github.io/simple-photo-editor/privacy/ (English: `/en/`), served by GitHub Pages from the public `netersoft/netersoft.github.io` repository. After editing the policy, regenerate the pages and push that repository:
+
+```bash
+python3 tool/build_privacy_pages.py ~/Dev/Projects/Web/netersoft.github.io
+```
 
 ## Quality
 
