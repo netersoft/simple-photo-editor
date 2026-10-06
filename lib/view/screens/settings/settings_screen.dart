@@ -9,13 +9,14 @@ import 'package:settings_ui/settings_ui.dart';
 import '../../../core/enums/app_brightness.dart';
 import '../../../core/helpers/store/store_helper.dart';
 import '../../../core/providers/settings/settings_provider.dart';
+import '../../../core/routes/app_route.dart';
 import '../../../core/services/gallery/service.dart';
 import '../../../core/services/i18n/config.dart';
 import '../../../core/services/i18n/translations.g.dart';
 import '../../components/misc/floating_modal.dart';
 import '../../themes/app_theme.dart';
 
-/// Preferences (language, theme) and the app's links: rate, share, other apps, about.
+/// Preferences (language, theme) and the app's links: rate, share, other apps, privacy policy, about.
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
@@ -154,6 +155,11 @@ class SettingsListWrapper extends ConsumerWidget {
                 title: Text(context.t.moreApps),
                 onPressed: (_) => StoreHelper.moreApps(),
               ),
+            SettingsTile.navigation(
+              leading: const Icon(Icons.privacy_tip_outlined),
+              title: Text(context.t.privacyPolicy),
+              onPressed: (context) => const PrivacyPolicyRoute().push<void>(context),
+            ),
             SettingsTile.navigation(
               leading: const Icon(Icons.info_outline),
               title: Text(context.t.about),

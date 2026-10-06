@@ -7,6 +7,7 @@ import '../../view/screens/collection/collection_screen.dart';
 import '../../view/screens/collection/viewer_screen.dart';
 import '../../view/screens/editor/photo_editor_screen.dart';
 import '../../view/screens/main_screen.dart';
+import '../../view/screens/settings/privacy_policy_screen.dart';
 import '../../view/screens/settings/settings_screen.dart';
 import '../../view/screens/sharing/sharing_screen.dart';
 import 'swipeable_page_route.dart';
@@ -39,6 +40,7 @@ class RedirectionRoute extends GoRouteData with $RedirectionRoute {
   path: '/main',
   routes: [
     TypedGoRoute<SettingsRoute>(path: 'settings'),
+    TypedGoRoute<PrivacyPolicyRoute>(path: 'privacy'),
     TypedGoRoute<EditorRoute>(path: 'editor'),
     TypedGoRoute<SharingRoute>(path: 'sharing'),
     TypedGoRoute<CollectionRoute>(
@@ -62,6 +64,13 @@ class SettingsRoute extends GoRouteData with $SettingsRoute {
 }
 
 /// The editor draws with one finger: no swipe-back gesture there.
+class PrivacyPolicyRoute extends GoRouteData with $PrivacyPolicyRoute {
+  const PrivacyPolicyRoute();
+
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) => SwipeablePage<void>(builder: (context) => const PrivacyPolicyScreen());
+}
+
 class EditorRoute extends GoRouteData with $EditorRoute {
   const EditorRoute({required this.$extra});
 
