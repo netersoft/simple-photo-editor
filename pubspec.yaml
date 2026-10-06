@@ -42,10 +42,6 @@ dependencies:
   slang_flutter: ^4.18.0
   injectable: ^3.0.0
   marionette_flutter: ^0.6.0
-  firebase_core: ^4.12.1
-  firebase_crashlytics: ^5.2.6
-  firebase_analytics: ^12.4.5
-
   json_annotation: any
   filmkit: ^0.7.1
   image_picker: ^1.2.3

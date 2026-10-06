@@ -6,7 +6,7 @@
 
 Quickly edit your photos and share them. Flutter rewrite of the [Simple Photo Editor](https://play.google.com/store/apps/details?id=com.neteru.simplephotoeditor) Android app (Java). Same application ID (`com.neteru.simplephotoeditor`), so the Flutter version ships as an update of the existing Play Store listing.
 
-Built from the [flutter-starter](https://github.com/edpage-hq/flutter-starter), keeping only what the app uses: routing, settings, i18n, theming, splash, crash reporting and analytics. The launcher icon and splash come from the Java app's lens logo (`assets/images/lens.svg`).
+Built from the [flutter-starter](https://github.com/edpage-hq/flutter-starter), keeping only what the app uses: routing, settings, i18n, theming and splash. The launcher icon and splash come from the Java app's lens logo (`assets/images/lens.svg`).
 
 ## Features
 
@@ -28,7 +28,6 @@ Not ported from the Java app: the fish eye, grain, sharpen and vignette filters 
 - Routing: go_router (`go_router_builder`)
 - Local storage: SharedPreferences
 - i18n: [Slang](https://pub.dev/packages/slang), French (base) and English
-- Crash reporting / analytics: Firebase (Crashlytics + Analytics)
 - Photo editing: filmkit (crop, filters, native export), image_picker, photo_manager (gallery album), exif
 
 ## Prerequisites
@@ -72,7 +71,7 @@ flutter test --coverage
 ## Architecture
 
 - `lib/main.dart`: entry point only.
-- `lib/core/bootstrap/app_bootstrap.dart`: Flutter, env, Firebase, DI and locale bootstrap.
+- `lib/core/bootstrap/app_bootstrap.dart`: Flutter, env, DI and locale bootstrap.
 - `lib/app.dart`: root app widget, theme, and router view.
 - `lib/core/`: providers, services, routes, helpers, extensions, tools.
 - `lib/view/`: screens, components, themes.
@@ -86,13 +85,6 @@ Routes are defined in `lib/core/routes/app_route.dart` (type-safe `go_router_bui
 Translations live in `assets/i18n/*.i18n.json` (base locale: fr) and are used through `context.t`. The locale comes from the device at first launch.
 
 Generated files (`*.g.dart`, `*.config.dart`) are not committed: rebuild them with `dart run slang` and `dart run build_runner build`.
-
-## Firebase (Crash Reporting + Analytics)
-
-- `FirebaseSetup` (`lib/core/services/firebase/service.dart`) initializes Firebase once at bootstrap. `FirebaseSetup.isConfigured` detects the placeholder `lib/firebase_options.dart`, and every Firebase-backed service is a no-op until `flutterfire configure` replaces it.
-- `CrashReportingService` sends uncaught errors to Crashlytics; `LogHelper.e` / `LogHelper.f` also report caught errors as non-fatal.
-- `AnalyticsService` wraps `FirebaseAnalytics`; screen views are tracked through the router's `FirebaseAnalyticsObserver`.
-- The [privacy policy](#privacy-policy) states that the app sends no analytics or crash reports: update it before shipping a build with Firebase configured.
 
 ## Privacy policy
 
