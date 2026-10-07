@@ -27,7 +27,7 @@ Not ported from the Java app: the fish eye, grain, sharpen and vignette filters 
 - State management: Riverpod (`riverpod_generator`, code-gen)
 - Routing: go_router (`go_router_builder`)
 - Local storage: SharedPreferences
-- i18n: [Slang](https://pub.dev/packages/slang), French (base) and English
+- i18n: [Slang](https://pub.dev/packages/slang), French and English, English base locale
 - Photo editing: filmkit (crop, filters, native export), image_picker, photo_manager (gallery album), exif
 
 ## Prerequisites
