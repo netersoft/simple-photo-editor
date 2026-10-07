@@ -82,7 +82,7 @@ All providers use `@riverpod` code generation. `GetIt` (with `injectable`) holds
 
 Routes are defined in `lib/core/routes/app_route.dart` (type-safe `go_router_builder` routes) and built in `lib/core/routes/router.dart`.
 
-Translations live in `assets/i18n/*.i18n.json` (base locale: fr) and are used through `context.t`. The locale comes from the device at first launch.
+Translations live in `assets/i18n/*.i18n.json` (base locale: en, the fallback for unsupported device languages) and are used through `context.t`. The locale comes from the device at first launch.
 
 Generated files (`*.g.dart`, `*.config.dart`) are not committed: rebuild them with `dart run slang` and `dart run build_runner build`.
 
