@@ -6,7 +6,7 @@
 
 Quickly edit your photos and share them. Flutter rewrite of the [Simple Photo Editor](https://play.google.com/store/apps/details?id=com.neteru.simplephotoeditor) Android app (Java). Same application ID (`com.neteru.simplephotoeditor`), so the Flutter version ships as an update of the existing Play Store listing.
 
-Built from the [flutter-starter](https://github.com/edpage-hq/flutter-starter), keeping only what the app uses: routing, settings, i18n, theming and splash. The launcher icon and splash come from the Java app's lens logo (`assets/images/lens.svg`).
+The launcher icon and splash come from the Java app's lens logo (`assets/images/lens.svg`).
 
 ## Features
 
