@@ -21,6 +21,23 @@ The launcher icon and splash come from the Java app's lens logo (`assets/images/
 
 Not ported from the Java app: the fish eye, grain, sharpen and vignette filters (not color transforms, so not LUTs), and the per-app share buttons (WhatsApp, Facebook…), replaced by the system share sheet.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="store/screenshots/en/1_editor.png" width="260" alt="Edit your photos in a few taps"></td>
+    <td><img src="store/screenshots/en/2_filters.png" width="260" alt="16 filters, brightness, contrast and crop"></td>
+    <td><img src="store/screenshots/en/3_stickers.png" width="260" alt="Stickers, emojis and text"></td>
+  </tr>
+  <tr>
+    <td><img src="store/screenshots/en/4_brush.png" width="260" alt="Draw on your photos"></td>
+    <td><img src="store/screenshots/en/5_share.png" width="260" alt="Save and share in one tap"></td>
+    <td><img src="store/screenshots/en/6_home.png" width="260" alt="Simple, free, and ad-free"></td>
+  </tr>
+</table>
+
+The Play Store images, in English; other languages are in `store/screenshots/<lang>/`.
+
 ## Tech stack
 
 - Mobile: Flutter (Android and iOS), Dart SDK `>=3.8.0 <4.0.0`; Roboto font, bundled in `assets/fonts/roboto/` (Apache 2.0)
