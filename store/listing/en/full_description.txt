@@ -1,0 +1,29 @@
+Simple Photo Editor lets you edit your photos in a few taps and share them with your friends and family. Pick a photo from your gallery or take one with the camera, touch it up, add text, stickers or a drawing, then save and share it. Simple, free and ad-free.
+
+★ FILTERS AND ADJUSTMENTS
+• 16 filters: black & white, sepia, grayscale, lomo, dual tone, cross process, documentary, posterize, negative, auto fix…
+• Brightness, contrast, saturation and warmth
+• Crop, with preset ratios
+• Rotate and mirror
+
+★ CREATIVE TOOLS
+• Text: write on your photos in the color of your choice
+• Emojis and 35 stickers
+• Brush: draw freely, with the color, size and opacity you want, and an eraser
+• Move, enlarge and turn texts, emojis and stickers with your fingers
+• Undo and redo every step
+
+★ SAVE AND SHARE
+• Your photo is saved in high definition (up to 2048 px) in the "Simple Photo Editor" album of your gallery
+• Share it in one tap with the app of your choice
+• Your collection: find your edited photos, view them full screen, edit them again, share or delete them
+• Image info: file, size, dimensions and camera data (EXIF)
+
+★ SIMPLE AND RESPECTFUL OF YOUR PRIVACY
+• No ads, no account, no data collected: your photos stay on your phone
+• Works without an internet connection
+• Light and dark theme
+• In English and French
+• Free software (GNU GPL v3)
+
+A sunset to brighten up, a birthday photo to decorate, a meme to make: everything you need, nothing more.

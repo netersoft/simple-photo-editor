@@ -1,0 +1,29 @@
+Simple Photo Editor vous permet de retoucher vos photos en quelques gestes et de les partager avec vos amis et votre famille. Choisissez une photo dans votre galerie ou prenez-en une avec l’appareil photo, retouchez-la, ajoutez du texte, des stickers ou un dessin, puis enregistrez-la et partagez-la. Simple, gratuit et sans publicité.
+
+★ FILTRES ET RÉGLAGES
+• 16 filtres : noir et blanc, sépia, niveaux de gris, lomo, bichromie, traitement croisé, documentaire, postérisation, négatif, correction automatique…
+• Luminosité, contraste, saturation et chaleur
+• Recadrage, avec des formats prédéfinis
+• Rotation et miroir
+
+★ DES OUTILS CRÉATIFS
+• Texte : écrivez sur vos photos dans la couleur de votre choix
+• Des emojis et 35 stickers
+• Pinceau : dessinez librement, avec la couleur, la taille et l’opacité de votre choix, et une gomme
+• Déplacez, agrandissez et tournez textes, emojis et stickers du bout des doigts
+• Annulez et rétablissez chaque étape
+
+★ ENREGISTRER ET PARTAGER
+• Votre photo est enregistrée en haute définition (jusqu’à 2048 px) dans l’album « Simple Photo Editor » de votre galerie
+• Partagez-la en un geste avec l’app de votre choix
+• Votre collection : retrouvez vos photos retouchées, affichez-les en plein écran, retouchez-les à nouveau, partagez-les ou supprimez-les
+• Infos de l’image : fichier, taille, dimensions et données de l’appareil photo (EXIF)
+
+★ SIMPLE ET RESPECTUEUX DE VOTRE VIE PRIVÉE
+• Sans publicité, sans compte, aucune donnée collectée : vos photos restent sur votre téléphone
+• Fonctionne sans connexion internet
+• Thème clair et sombre
+• En français et en anglais
+• Logiciel libre (GNU GPL v3)
+
+Un coucher de soleil à sublimer, une photo d’anniversaire à décorer, un mème à créer : tout ce qu’il faut, rien de plus.
