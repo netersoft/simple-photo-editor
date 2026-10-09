@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -19,10 +20,13 @@ abstract class StoreHelper {
   /// Netersoft's developer page on the Play Store.
   static const _developerId = '6685918894519555539';
 
-  /// Like the Java app: the review prompt shows once the app has been opened 10 times,
-  /// at least 10 days after its first launch.
-  static const _minLaunches = 10;
-  static const _minDays = 10;
+  /// The review prompt shows once, after a photo was saved, and only for someone who uses the
+  /// app: opened 5 times, at least 3 days after its first launch.
+  static const _minLaunches = 5;
+  static const _minDays = 3;
+
+  @visibleForTesting
+  static DateTime Function() clock = DateTime.now;
 
   /// The app's Play Store listing; on iOS, which has no listing yet, the system review prompt.
   static Future<void> rate() async {
@@ -43,17 +47,25 @@ abstract class StoreHelper {
   /// Whether the store has a developer page for this platform.
   static bool get hasMoreApps => Platform.isAndroid;
 
-  /// Counts a launch and asks for a review when the conditions are met.
+  /// Counts a launch, for the review prompt.
   static Future<void> onLaunch() async {
     final prefs = locator<SharedPreferencesService>();
-    final now = DateTime.now();
-    final firstLaunch = DateTime.fromMillisecondsSinceEpoch(prefs.getInt(PrefKeys.firstLaunchDate) ?? now.millisecondsSinceEpoch);
+    final now = clock();
     final launches = (prefs.getInt(PrefKeys.launchCount) ?? 0) + 1;
-    await prefs.setInt(PrefKeys.firstLaunchDate, firstLaunch.millisecondsSinceEpoch);
+    if (prefs.getInt(PrefKeys.firstLaunchDate) == null) await prefs.setInt(PrefKeys.firstLaunchDate, now.millisecondsSinceEpoch);
     await prefs.setInt(PrefKeys.launchCount, launches);
+  }
 
+  /// Called when the user leaves the sharing screen: they saved a photo, the moment to ask for
+  /// a review. Asks once in the app's life, when the conditions are met; the store then
+  /// decides whether the sheet actually shows.
+  static Future<void> onPhotoSaved() async {
+    final prefs = locator<SharedPreferencesService>();
     if (prefs.getBool(PrefKeys.reviewRequested) ?? false) return;
-    if (launches < _minLaunches || now.difference(firstLaunch).inDays < _minDays) return;
+    final firstLaunch = prefs.getInt(PrefKeys.firstLaunchDate);
+    final launches = prefs.getInt(PrefKeys.launchCount) ?? 0;
+    if (firstLaunch == null || launches < _minLaunches) return;
+    if (clock().difference(DateTime.fromMillisecondsSinceEpoch(firstLaunch)).inDays < _minDays) return;
     if (!await InAppReview.instance.isAvailable()) return;
     await prefs.setBool(PrefKeys.reviewRequested, true);
     await InAppReview.instance.requestReview();

@@ -1,18 +1,35 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../../core/helpers/store/store_helper.dart';
 import '../../../core/routes/app_route.dart';
 import '../../../core/services/i18n/translations.g.dart';
 import '../../themes/app_theme.dart';
 
-/// Shown after saving: the photo, and sharing it through the system share sheet.
-class SharingScreen extends StatelessWidget {
+/// Shown after saving: the photo, and sharing it through the system share sheet. Leaving it
+/// may bring up the review prompt (see [StoreHelper.onPhotoSaved]): the user has their photo,
+/// and is done sharing it.
+class SharingScreen extends StatefulWidget {
   const SharingScreen({required this.path, super.key});
 
   final String path;
+
+  @override
+  State<SharingScreen> createState() => _SharingScreenState();
+}
+
+class _SharingScreenState extends State<SharingScreen> {
+  String get path => widget.path;
+
+  @override
+  void dispose() {
+    unawaited(StoreHelper.onPhotoSaved());
+    super.dispose();
+  }
 
   Future<void> _share(BuildContext context) {
     final box = context.findRenderObject() as RenderBox?;
