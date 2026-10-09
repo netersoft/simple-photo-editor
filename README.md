@@ -10,7 +10,7 @@ The launcher icon and splash come from the Java app's lens logo (`assets/images/
 
 ## Features
 
-- **Home**: the Java app's layout, six round buttons on a hexagon around the lens: camera, gallery, collection, settings, rate the app, Netersoft's other apps (Android, its Play Store developer page). The review prompt shows once, after 10 launches over at least 10 days, like the Java app.
+- **Home**: the Java app's layout, six round buttons on a hexagon around the lens: camera, gallery, collection, settings, rate the app, Netersoft's other apps (Android, its Play Store developer page). The review prompt shows once, when the user leaves the sharing screen after saving a photo, if the app was opened 5 times over at least 3 days.
 - **Settings**: language and theme; rate, share the app (system share sheet), other apps, privacy policy, about.
 - **Editor** (`lib/view/screens/editor/`):
   - *Adjust* opens [filmkit](https://pub.dev/packages/filmkit)'s editor: crop with ratios, the Java app's 16 color filters recreated as LUTs (`lib/core/editor/legacy_looks.dart`), brightness, contrast, saturation and warmth. It always works from the original photo, reopened where the user left off.
