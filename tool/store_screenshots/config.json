@@ -22,5 +22,17 @@
       "Enregistrez et partagez en un geste",
       "Simple, gratuit et sans publicité"
     ]
+  },
+  "feature": {
+    "icon": "assets/images/launcher/icon.png",
+    "screens": ["stickers", "editor"],
+    "name": {
+      "fr": "Simple Photo Editor",
+      "en": "Simple Photo Editor"
+    },
+    "tagline": {
+      "fr": "Filtres, texte, stickers : retouchez en quelques gestes",
+      "en": "Filters, text, stickers: edit your photos in a few taps"
+    }
   }
 }

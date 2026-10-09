@@ -4,6 +4,18 @@
 app language: 1080×1920 (9:16) 24-bit PNGs, a white title over the app's blue gradient and a
 light-theme capture in a phone frame.
 
+## Feature graphic
+
+`store/feature_graphic/<lang>.png` is the 1024×500 banner at the top of the listing: the
+app's icon, name and a tagline next to two of the screenshots, cut out of
+`store/screenshots/<lang>/`. Rebuild it after the screenshots:
+
+```bash
+python3 tool/store_screenshots/feature.py
+```
+
+Its icon, screens, names and taglines are under `feature` in `config.json`.
+
 ## The demo photo
 
 [Brighton beach at sunset](https://commons.wikimedia.org/wiki/File:Brighton_beach_at_sunset_2025-02-27.jpg),
