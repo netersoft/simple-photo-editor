@@ -1,0 +1,26 @@
+{
+  "font": "assets/fonts/roboto/Roboto-Bold.ttf",
+  "title_color": "#ffffff",
+  "background_top": "#0000cd",
+  "background_bottom": "#00007a",
+  "bezel_color": "#14141f",
+  "screens": ["editor", "filters", "stickers", "brush", "share", "home"],
+  "titles": {
+    "en": [
+      "Edit your photos in a few taps",
+      "16 filters, brightness, contrast and crop",
+      "Stickers, emojis and text",
+      "Draw on your photos",
+      "Save and share in one tap",
+      "Simple, free, and ad-free"
+    ],
+    "fr": [
+      "Retouchez vos photos en quelques gestes",
+      "16 filtres, luminosité, contraste et recadrage",
+      "Autocollants, emojis et texte",
+      "Dessinez sur vos photos",
+      "Enregistrez et partagez en un geste",
+      "Simple, gratuit et sans publicité"
+    ]
+  }
+}

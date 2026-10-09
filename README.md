@@ -126,6 +126,7 @@ Simple Photo Editor is free software by Netersoft.
 - **Code**: the source code (`lib/`, `test/`, `tool/` and the platform folders) is licensed under the [GNU General Public License v3.0](LICENSE).
 - **Content**: the texts, translations and pictures made by Netersoft for the app are licensed under [Creative Commons Attribution-ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 - **Third-party files** keep their own licenses: the OpenMoji emoji stickers (CC BY-SA 4.0), the error screen icon from game-icons.net (CC BY 3.0) and the Roboto font (Apache 2.0), listed in the in-app Sources and credits page (`assets/docs/<locale>/credits.html`).
+- **Store screenshots** (`store/screenshots/`) show a CC0 photo by Andy Li, credited in `tool/store_screenshots/README.md`.
 - **Names and icons**: the Netersoft name, the Simple Photo Editor name, and the app icons and logos (`assets/images/launcher/` and `assets/images/lens.svg`) are not covered by these licenses. A modified version must use another name and icon.
 
 Copyright © 2018-2026 Netersoft.
